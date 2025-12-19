@@ -1,49 +1,80 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { FocusContext } from '../App';
+import { createKeyHandler } from '../utils/tizenRemote';
+import { Search } from '../assets/icons';
+import { Home2 } from '../assets/icons';
+import { Home1 } from '../assets/icons';
+import { Align_Left } from '../assets/icons';
+import { My_list } from '../assets/icons';
+import { Snips } from '../assets/icons';
+import ARYPLUSLOGO from '../assets/images/ARYPLUSLOGO.png';
+import ARYPlusicon  from '../assets/images/ARYPlus_icon.png';
 import './Sidebar.css';
+
+
+// Then use as: <Search />
 
 const Sidebar = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
-  const { focusMode, setFocusMode } = useContext(FocusContext);
+  const { focusMode, setFocusMode, isCollapsed, setIsCollapsed } = useContext(FocusContext);
   const navigate = useNavigate();
   
   const menuItems = [
-    { path: '/', label: 'Home', icon: '🏠' },
-    { path: '/movies', label: 'Movies', icon: '🎬' },
-    { path: '/series', label: 'TV Series', icon: '📺' },
-    { path: '/live', label: 'Live TV', icon: '📡' },
-    { path: '/sports', label: 'Sports', icon: '⚽' },
-    { path: '/settings', label: 'Settings', icon: '⚙️' }
+    { path: '/', label: 'Home', icon: <Home1/> },
+    { path: '/search', label: 'Search', icon: <Search/>  },
+    { path: '/Home', label: 'Home', icon: <Home2/> },
+    { path: '/Snips', label: 'Snips', icon: <Align_Left/> },
+    { path: '/Categories', label: 'Categories', icon: <My_list/> },
+    { path: '/My list', label: 'My list', icon: <Snips/> }
   ];
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (focusMode === 'sidebar') {
-        if (e.key === 'ArrowDown') {
+    const handleKeyDown = createKeyHandler({
+      ArrowDown: (e) => {
+        if (focusMode === 'sidebar') {
           e.preventDefault();
           setFocusedIndex(prev => (prev + 1) % menuItems.length);
-        } else if (e.key === 'ArrowUp') {
+        }
+      },
+      ArrowUp: (e) => {
+        if (focusMode === 'sidebar') {
           e.preventDefault();
           setFocusedIndex(prev => (prev - 1 + menuItems.length) % menuItems.length);
-        } else if (e.key === 'Enter') {
+        }
+      },
+      Enter: (e) => {
+        if (focusMode === 'sidebar') {
           e.preventDefault();
           navigate(menuItems[focusedIndex].path);
           setFocusMode('content');
+          setIsCollapsed(true);
         }
-      } else if (focusMode === 'content' && e.key === 'Escape') {
-        setFocusMode('sidebar');
+      },
+      Escape: (e) => {
+        if (focusMode === 'content') {
+          setFocusMode('sidebar');
+          setIsCollapsed(false);
+        }
+      },
+      Return: (e) => {
+        if (focusMode === 'content') {
+          setFocusMode('sidebar');
+          setIsCollapsed(false);
+        }
       }
-    };
+    });
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [focusedIndex, menuItems, navigate, focusMode]);
 
   return (
-    <nav className="sidebar">
+    <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
-        <h2>ARYPLUS TV</h2>
+        <div className="logo">
+          {isCollapsed ? <img src={ARYPlusicon} alt="ARYPLUS TV" style={{height: '30px'}} /> : <img src={ARYPLUSLOGO} alt="ARYPLUS TV" style={{height: '30px'}} />}
+        </div>
       </div>
       <ul className="sidebar-menu">
         {menuItems.map((item, index) => (

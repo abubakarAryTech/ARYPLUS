@@ -1,7 +1,7 @@
 .app {
   display: flex;
   height: 100vh;
-  background: #0a0a0a;
+  background: #1f1f1f;
   color: white;
   font-family: 'Arial', sans-serif;
 }
@@ -11,6 +11,11 @@
   flex: 1;
   padding: 20px;
   overflow-y: auto;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.collapsed {
+  margin-left: 70px;
 }
 
 .page-content {
