@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { FocusContext } from '../App';
+import { createKeyHandler } from '../utils/tizenRemote';
 
 const Home = () => {
   const [cardFocus, setCardFocus] = useState(0);
@@ -8,19 +9,25 @@ const Home = () => {
   const cards = ['Popular Movies', 'Trending Shows', 'Live Channels'];
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (focusMode === 'content') {
-        if (e.key === 'ArrowRight') {
+    const handleKeyDown = createKeyHandler({
+      ArrowRight: (e) => {
+        if (focusMode === 'content') {
           e.preventDefault();
           setCardFocus(prev => (prev + 1) % cards.length);
-        } else if (e.key === 'ArrowLeft') {
+        }
+      },
+      ArrowLeft: (e) => {
+        if (focusMode === 'content') {
           e.preventDefault();
           setCardFocus(prev => (prev - 1 + cards.length) % cards.length);
-        } else if (e.key === 'Enter') {
+        }
+      },
+      Enter: (e) => {
+        if (focusMode === 'content') {
           alert(`Selected: ${cards[cardFocus]}`);
         }
       }
-    };
+    });
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);

@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
+import { registerTizenKeys } from './utils/tizenRemote';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
@@ -13,20 +14,25 @@ export const FocusContext = createContext();
 
 function App() {
   const [focusMode, setFocusMode] = useState('sidebar');
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    registerTizenKeys();
+  }, []);
 
   return (
     <Router>
-      <FocusContext.Provider value={{ focusMode, setFocusMode }}>
+      <FocusContext.Provider value={{ focusMode, setFocusMode, isCollapsed, setIsCollapsed }}>
         <div className="app">
           <Sidebar />
-          <main className="main-content">
+          <main className={`main-content ${isCollapsed ? 'collapsed' : ''}`}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/movies" element={<Movies />} />
-              <Route path="/series" element={<Series />} />
-              <Route path="/live" element={<Live />} />
-              <Route path="/sports" element={<Sports />} />
-              <Route path="/settings" element={<Settings />} />
+              <Route path="/search" element={<Movies />} />
+              <Route path="/Home" element={<Series />} />
+              <Route path="/Snips" element={<Live />} />
+              <Route path="/Categories" element={<Sports />} />
+              <Route path="/My list" element={<Settings />} />
             </Routes>
           </main>
         </div>
@@ -36,3 +42,4 @@ function App() {
 }
 
 export default App
+
