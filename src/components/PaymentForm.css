@@ -1,0 +1,212 @@
+.payment-form-wrapper {
+  margin: 0 auto;
+}
+
+.payment-form-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  /* padding: 30px; */
+  border-radius: 32px;
+
+  width: 673;
+  height: 498;
+  gap: 25px;
+  opacity: 1;
+  padding: 32px;
+  border-top-right-radius: Scale/600;
+  border-width: 1px;
+
+  background: #FFFFFF0F;
+  border: 1px solid #FFFFFFB2 !important;
+}
+
+.payment-form-title {
+  color: white;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .payment-form-title {
+    font-size: 1rem;
+  }
+}
+
+.payment-form-encryption {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.payment-form-encryption-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .payment-form-encryption-text {
+    font-size: 12px;
+  }
+}
+
+.payment-form-encryption-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+  .payment-form-encryption-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.payment-method-options {
+  margin-bottom: 0.5rem;
+}
+
+.payment-option {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.12) 100%);
+  height: 65px;
+  min-height: 50px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  border: 1px solid;
+  border: linear-gradient(145.9deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 78.94%);
+
+
+
+}
+.payment-form-btn{
+  padding: 12px 0px;
+}
+
+.payment-option-selected {
+  background: #FFFFFF5C;
+  
+
+
+}
+
+.payment-option-left {
+  display: flex;
+  align-items: center;
+}
+
+.payment-option-radio {
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.payment-option-radio-img {
+  width: 16px;
+  height: 16px;
+}
+
+.payment-option-label {
+  color: white;
+}
+
+.payment-option-right {
+  display: flex;
+  align-items: center;
+}
+
+.payment-option-card-icon {
+  height: 20px;
+  width: auto;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .payment-option-card-icon {
+    height: 12px;
+    margin-right: 6px;
+  }
+}
+
+.payment-option-card-icon-last {
+  margin-right: 32px;
+}
+
+@media (max-width: 768px) {
+  .payment-option-card-icon-last {
+    margin-right: 16px;
+  }
+}
+
+.payment-option-arrow {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .payment-option-arrow {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.payment-option-sahulat-logo {
+  height: 24px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+  .payment-option-sahulat-logo {
+    height: 18px;
+  }
+}
+
+
+
+.payment-form-phone-group {
+  margin-bottom: 1.5rem;
+}
+
+.payment-form-phone-label {
+  color: white;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.payment-form-phone-input {
+  width: 100%;
+  background-color: #30253A;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  color: #FFF;
+  border-radius: 0px;
+  padding: 16px;
+  font-size: 16px;
+}
+
+.payment-form-phone-input-error {
+  border: 2px solid #dc3545;
+}
+
+.payment-form-phone-error {
+  color: #dc3545;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.payment-form-error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 8px;
+  color: #f8d7da;
+}

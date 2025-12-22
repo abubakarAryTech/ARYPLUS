@@ -1,0 +1,57 @@
+/* TV Activation Page Styles */
+.auth-page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(31, 31, 31, 0.96), rgba(31, 31, 31, 0.96));
+  padding: 20px;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h1 {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.auth-header p {
+  font-family: "Poppins";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.auth-form .form-group {
+  margin-bottom: 20px;
+}
+
+.auth-form .btn-block {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.auth-footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}

@@ -1,0 +1,44 @@
+#back-to-top {
+  // display: inline !important;
+
+  display: inline-block !important;
+
+  position: fixed; /* Fixed positioning to stay in place when scrolling */
+
+  z-index: 9999; /* High z-index to ensure it’s on top */
+  .top {
+    z-index: 999;
+    bottom: 1.875em;
+    right: 1.5625em;
+    width: 3.125em;
+    height: 3.125em;
+    text-align: center;
+    line-height: 3.125em;
+    transition: all 0.3s ease-in-out;
+
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+
+// #back-to-top {
+//   display: inline-block !important;
+//   position: fixed; /* Fixed positioning to stay in place when scrolling */
+//   bottom: 1.875em;
+//   right: 1.5625em;
+//   z-index: 9999; /* High z-index to ensure it’s on top */
+// }
+
+// #back-to-top .top {
+//   z-index: 9999; /* Ensure the button icon is also above others */
+//   width: 3.125em;
+//   height: 3.125em;
+//   text-align: center;
+//   line-height: 3.125em;
+//   transition: all 0.3s ease-in-out;
+// }
+
+// #back-to-top .top i {
+//   vertical-align: middle;
+// }

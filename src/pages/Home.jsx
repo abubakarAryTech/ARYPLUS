@@ -1,12 +1,59 @@
 import { useState, useEffect, useContext } from 'react';
 import { FocusContext } from '../App';
 import { createKeyHandler } from '../utils/tizenRemote';
+import HomeHeroSlider from '../components/slider/HomeHeroSlider';
+import api from '../services/api';
+import { useAuthStore } from '../stores/useAuthStore';
 
 const Home = () => {
   const [cardFocus, setCardFocus] = useState(0);
   const { focusMode } = useContext(FocusContext);
+  const [sliderData, setSliderData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const user = useAuthStore(state => state.user);
   
   const cards = ['Popular Movies', 'Trending Shows', 'Live Channels'];
+
+  useEffect(() => {
+    // Hardcoded slider data for testing
+    const hardcodedData = [
+      {
+        imagePath: "slider1.jpg",
+        data: {
+          _id: "1",
+          title: "Sample Movie 1",
+          description: "This is a sample movie description for testing the slider.",
+          seriesType: "singleVideo",
+          releaseDate: "2024-01-01",
+          genreId: [{ title: "Action" }],
+          episodeCount: 1,
+          videoDuration: "02:15:30",
+          logo: null,
+          trailer: null,
+          imageCoverMobile: "mobile1.jpg"
+        }
+      },
+      {
+        imagePath: "slider2.jpg",
+        data: {
+          _id: "2",
+          title: "Sample Show 2",
+          description: "This is a sample TV show description for testing the slider.",
+          seriesType: "show",
+          releaseDate: "2024-02-01",
+          genreId: [{ title: "Drama" }],
+          episodeCount: 24,
+          videoDuration: "45:00",
+          logo: null,
+          trailer: null,
+          imageCoverMobile: "mobile2.jpg"
+        }
+      }
+    ];
+    
+    setSliderData(hardcodedData);
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = createKeyHandler({
@@ -35,6 +82,10 @@ const Home = () => {
 
   return (
     <div className="page-content">
+
+    {!isLoading && <HomeHeroSlider list={sliderData} favorites={[]} user={user} />}
+
+
       <h1>Welcome to ARYPLUS TV</h1>
       <div className="content-grid">
         <div className="featured-section">

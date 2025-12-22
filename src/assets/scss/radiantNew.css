@@ -1,0 +1,16 @@
+/* Apply full screen to the Radiant Media Player */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scroll bars */
+  height: 100%; /* Ensure the body is full height */
+}
+
+#rmp {
+  width: 100vw; /* Full viewport width */
+  height: 80vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

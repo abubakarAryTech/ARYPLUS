@@ -1,0 +1,266 @@
+/* Payment Success Styles */
+.payment-success-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 480px;
+  width: 90%;
+  z-index: 10000;
+  animation: slideInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideInScale {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) translateY(0);
+  }
+}
+
+/* Success Animation */
+.success-animation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.checkmark-circle {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 3;
+  stroke: #22c55e;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #22c55e;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-circle-path {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  stroke: #22c55e;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #22c55e;
+  stroke-width: 3;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #22c55e;
+  }
+}
+
+/* Success Content */
+.success-content {
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.success-description {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Success Actions */
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.watch-now-button {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.watch-now-button:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+.browse-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.browse-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.close-success {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-success:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+}
+
+/* Body class for success state */
+body.payment-success {
+  overflow: hidden;
+}
+
+body.payment-success::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payment-success-toast {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .success-title {
+    font-size: 1.25rem;
+  }
+
+  .success-description {
+    font-size: 0.875rem;
+  }
+
+  .checkmark-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .checkmark {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Confetti Animation (optional) */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  animation: confetti-fall 3s linear infinite;
+  z-index: 10001;
+}
+
+.confetti:nth-child(odd) {
+  background: #3b82f6;
+  animation-delay: -0.5s;
+}
+
+.confetti:nth-child(even) {
+  animation-delay: -1s;
+}

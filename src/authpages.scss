@@ -1,0 +1,1079 @@
+/* === Shared Styles for .get-started and .get-started-signup === */
+
+.get-started,
+.get-started-signup,
+.get-started-account {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.get-started .container,
+.get-started-signup .container,
+.get-started-account .container {
+  padding: 0px 30px;
+}
+
+.get-started {
+  background-image:
+    linear-gradient(270deg, rgba(0, 0, 0, 0) 1.69%, rgba(31, 31, 31, 1) 88.65%),
+    var(--get-started-bg);
+}
+
+.get-started-signup {
+  background:
+    linear-gradient(rgba(31, 31, 31, 0.76), rgba(31, 31, 31, 0.96)),
+    var(--get-started-bg);
+}
+
+.get-started-account {
+  background:
+    linear-gradient(180deg, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 1) 90.06%),
+    linear-gradient(rgba(31, 31, 31, 0.6), rgba(31, 31, 31, 0.9)),
+    var(--get-started-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* background: linear-gradient(rgba(31, 31, 31, 0.96), rgba(31, 31, 31, 0.96)),
+              var(--get-started-bg); */
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(31, 31, 31, 1); 86.06%); */
+}
+
+/* === Typography === */
+
+.get-started h2,
+.get-started-signup h2 {
+  font-family: "Poppins" !important;
+  font-weight: 700 !important;
+  font-size: 40px !important;
+  line-height: 50px !important;
+  letter-spacing: 0% !important;
+}
+
+.get-started-signup h3 {
+  font-family: "Poppins" !important;
+  font-weight: 700 !important;
+  font-size: 35px !important;
+  /* line-height: 40px !important; */
+  letter-spacing: 0% !important;
+}
+
+.get-started-account h2 {
+  font-family: "Poppins";
+  font-weight: 500 !important;
+  font-size: 35px !important;
+}
+
+.get-started-account .backHeading {
+  font-family: "Poppins" !important;
+  font-weight: 600 !important;
+  font-size: 19px !important;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.get-started p,
+.get-started-signup p,
+.get-started-signup label,
+.get-started-account p,
+.get-started-account label {
+  font-family: "Poppins";
+  font-weight: 400;
+  // font-size: 14px;
+  line-height: 20px !important;
+  letter-spacing: 0%;
+  color: white;
+}
+
+.get-started-signup .gender-label {
+  font-family: "Poppins";
+  color: white;
+
+  font-weight: 500 !important;
+  font-size: 19px !important;
+  /* line-height: 100%;
+letter-spacing: 0%; */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.get-started-account .form-custom-label label {
+  font-family: "Poppins" !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  text-align: left !important;
+  display: flex !important;
+  justify-content: left !important;
+
+  /* line-height: 100% !;
+letter-spacing: 0%;
+vertical-align: middle; */
+}
+
+.get-started .top-bar p,
+.get-started-signup .top-bar p {
+  font-family: "Poppins" !important;
+  font-weight: 200 !important;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  letter-spacing: 3% !important;
+  /* color: #FFF !important; */
+}
+
+.get-started .top-bar a,
+.get-started-signup .top-bar a {
+  font-family: "Poppins";
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  letter-spacing: 3% !important;
+  color: #fff !important;
+}
+
+.error {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 100% !important;
+  /* letter-spacing: 0% !important; */
+  color: white;
+  padding-bottom: 20px !important;
+}
+
+.errorDiv {
+  text-align: right !important;
+}
+
+.get-started .footerp {
+  font-family: "Poppins";
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  letter-spacing: 3% !important;
+}
+
+.get-started .footerp a {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 3%;
+  color: grey;
+}
+
+/* === Forms === */
+
+.get-started form,
+.get-started-signup form,
+.get-started-account form {
+  width: 100%;
+}
+
+.get-started form .btn,
+.get-started-signup form .btn,
+.get-started-account form .btn {
+  background: linear-gradient(92.43deg,
+      #6BFE12 11%,
+      #A7CA11 113.58%);
+  backdrop-filter: blur(12px);
+  border: 0px !important;
+}
+
+.get-started-signup form .stroke-button,
+.get-started-account form .stroke-button {
+  padding-top: 8px;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  /* border-radius: 10px !important; */
+  // background: #ffffff0d;
+  border: 0.5px solid !important;
+  border: 2px solid;
+  color: white !important;
+
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.17) 100%);
+
+
+}
+
+/* width: 122;
+height: 60;
+gap: 10px;
+border-width: 1px;
+padding-top: 8px;
+padding-right: 20px;
+padding-bottom: 8px;
+padding-left: 20px;
+border-radius: 10px; */
+
+.get-started-signup .stroke-button.selected,
+.get-started-account .stroke-button.selected {
+  padding-top: 8px;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  /* border-radius: 10px; */
+  background: #ffffff33;
+  color: #fff !important;
+  border: 2px solid;
+  font-weight: bolder;
+}
+
+.get-started-signup .stroke-button:hover,
+.get-started-account .stroke-button:hover {
+  border: 2px solid;
+  background: #ffffff33;
+  color: #fff !important;
+}
+
+/* === Inputs === */
+
+/* .get-started .transparent-input,
+.get-started-signup .transparent-input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid;
+  border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.17));
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border-radius: 12px;
+} */
+
+.get-started form .form-control,
+.get-started-signup form .form-control,
+.get-started-account form .form-control {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(6px) !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  width: 100%;
+  /* border-radius: 12px; */
+}
+
+
+.avatar-div img.rounded-full {
+  width: 80px;
+  /* image size */
+  height: 80px;
+  border-radius: 50%;
+}
+
+
+
+
+
+.get-started .transparent-input:hover,
+.get-started-signup .transparent-input:hover .get-started-account .transparent-input:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.get-started .transparent-input::placeholder,
+.get-started-signup .transparent-input::placeholder,
+.get-started-account .transparent-input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* === Social Buttons === */
+
+.get-started .btn,
+.get-started-signup .btn {
+  border-radius: 0px !important;
+}
+
+.get-started .social-login .btn,
+.get-started-signup .social-login .btn {
+  border-radius: 0px;
+  display: flex;
+  width: 17.25rem;
+  height: 3.75rem;
+  padding: 0.625rem 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white !important;
+  /* flex-shrink: 0; */
+}
+
+.get-started-signup .social-login a {
+  color: #ffffff;
+}
+
+/* === Miscellaneous === */
+
+.get-started .icon-width {
+  width: 100px;
+  /* changed from 'size' which is invalid */
+}
+
+.custom-white-border {
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.custom-white-border:hover,
+.form-check-input:checked {
+  width: 24px;
+  height: 24px;
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.backbtn {
+  margin-right: 22px !important;
+}
+
+.backbtn:hover {
+  transform: scale(1.55);
+}
+
+/* Mobile css  */
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .get-started {
+    background:
+      linear-gradient(rgba(31, 31, 31, 0.96), rgba(31, 31, 31, 0.96)),
+      var(--get-started-bg);
+  }
+
+  .get-started-signup {
+    background:
+      linear-gradient(rgba(31, 31, 31, 0.96), rgba(31, 31, 31, 0.96)),
+      var(--get-started-bg);
+  }
+
+  .get-started .container,
+  .get-started-signup .container {
+    padding: 0px 0px;
+  }
+
+  .get-started h2,
+  .get-started-signup h2 {
+    font-family: "Poppins" !important;
+    font-weight: 500 !important;
+    font-size: 24px !important;
+    line-height: 30px !important;
+    letter-spacing: 0%;
+  }
+
+  .get-started-account h2 {
+    font-family: "Poppins" !important;
+    font-weight: 400 !important;
+    font-size: 24px !important;
+  }
+
+  .get-started p,
+  .get-started-signup p,
+  .get-started-signup label,
+  .get-started-account p,
+  .get-started-account label {
+    /* font-family: Mont; */
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 16px !important;
+    letter-spacing: 0%;
+    color: white;
+  }
+
+  .footerp {
+    text-align: center;
+  }
+
+  .error {
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 100% !important;
+    color: white;
+    padding-bottom: 20px !important;
+  }
+
+  .errorDiv {
+    text-align: left !important;
+  }
+}
+
+
+/* billing section css  */
+
+
+
+.billing-card {
+  background-color: rgba(21, 25, 2, 1);
+
+  padding: 1.5rem;
+  position: relative; /* Needed for the pseudo-element */
+}
+
+/* .top-effect{
+  background: var(--New-color, linear-gradient(270deg, #A7CA11 0%, #9640A1 100%)) !important;
+  height: 15px;
+} */
+.billing-card.top-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14px; /* Height of the top bar */
+  background: linear-gradient(92.43deg, #6BFE12 11%, #A7CA11 113.58%);
+}
+
+/* .billing-section {
+  margin-bottom: 1.5rem;
+} */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.section-header h4 {
+  /* font-size: 1.1rem;
+  margin: 0; */
+
+
+  color: #FFF;
+  /* Placeholder/PT Data */
+  font-family: "Poppins";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media(max-width: 768px) {
+  .section-header h4 {
+    font-size: 14px  !important;
+  } 
+  .update-method, .update-plan {
+    
+  font-size: 14px !important;
+
+  }
+  
+}
+
+.update-method, .update-plan {
+  text-decoration: none;
+
+  color: #FFF;
+
+  /* Button/BT1 */
+  font-family: "Poppins";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.update-method i, .update-plan i{
+  margin-left:18px;
+}
+
+.payment-card {
+  margin-top: 0.5rem;
+  /* margin-bottom: 1.5rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.payment-card img{
+  margin:0px 15px 0px 0px;
+}
+
+
+.card-logo {
+  /* width: 50px; */
+  height: auto;
+
+  width: 47.065px;
+  /* height: 37.724px; */
+  flex-shrink: 0;
+  aspect-ratio: 16/9;
+
+  background: var(--visa-bg) white 50% / cover no-repeat;
+}
+
+
+.gateway-logo {
+  width: 4rem;
+  /* color: white; */
+
+  /* width: 37.744px;
+  height: 22.18px;
+  flex-shrink: 0;
+  aspect-ratio: 4/5; */
+
+
+
+  /* width: 50px; */
+  /* height: auto; */
+
+  /* width: 47.065px; */
+  /* height: 37.724px; */
+  /* flex-shrink: 0;
+  aspect-ratio: 16/9; */
+
+  /* background: url("/assets/images/billing/paypro.png") white -0.106px 0px / 372.024% 100% no-repeat; */
+}
+
+.powered-by {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-left: auto;
+}
+
+.plan-info {
+  margin-top: 0.5rem;
+}
+
+.plan-info p {
+  margin: 0.6rem 0;
+  /* font-size: 0.95rem; */
+
+
+  color: #AEAEAE;
+
+  /* Subheading/SH1 */
+  font-family: "Poppins";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: auto; /* 145.455% */
+  letter-spacing: 0.11px;
+}
+.BillingRow{
+  
+  color: #FFF;
+  font-family: Poppins;
+  font-style: normal;  
+  text-align: left;
+  line-height: normal !important;
+}
+.billing-card .separator {
+  width: 100% !important;
+  height: 1px !important;
+  background-color: #fff !important; /* Use a subtle gray for better visibility */
+  margin: 1rem 0 !important; /* Adds spacing above and below the line */
+}
+
+.BillingRow .date{
+  font-size: 12px !important;
+  font-weight: 400 !important;  
+
+}
+.BillingRow .desc{
+  font-size: 19px !important;
+  font-weight: 400 !important;
+  text-align: left;
+  line-height: normal !important;
+
+
+  color: #FFF;
+
+
+}
+.BillingRow .contentRental{
+  color: #AEAEAE !important;
+  font-size: 19px !important;
+  font-weight: 400 !important;
+  line-height: normal !important;
+
+}
+.BillingRow .price{
+  font-size: 22px !important;
+  font-weight: 600 !important;
+
+}
+.BillingRow .chevron-right {
+  padding: 10px 0px 10px 20px;        
+  cursor: pointer; 
+}
+
+.BillingRow .chevron-right i {
+  font-size: 15px;   
+}
+
+
+.bill-card .billingCurrency p {
+  margin: 0.6rem 0;
+  /* font-size: 0.95rem; */
+
+
+  color: white !important;
+
+  /* Subheading/SH1 */
+  font-family: "Poppins";
+  font-size: 19px;
+  font-style: "SemiBold" !important;  
+  font-weight: 600 !important;
+  line-height: auto; /* 145.455% */
+  letter-spacing: 0.11px;
+
+
+
+}
+.bill-card .content-rental p{
+  color: #AEAEAE;
+  font-size: 16px;
+}
+
+.bill-card p{
+  color: #FFF;
+  font-size: 19px;
+}
+
+.next-billing{
+  color: #FFF !important;
+
+  /* Body/B1 */
+  font-family: "Poppins";
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: normal;
+}
+.next-billing span{
+  color: #AEAEAE !important;
+}
+
+.plan-info p:first-child {
+  font-weight: bold;
+}
+
+.billing-history .Scroller{
+  max-height: 65vh; /* Set a fixed height for the billing history section */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden;
+  padding-right: 10px; /* Optional: Add padding to prevent content from touching the scrollbar */
+}
+.billing-history .Scroller::-webkit-scrollbar {
+  width: 8px;
+}
+.billing-history .Scroller::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  /* border-radius: 4px; */
+}
+
+.billing-history .Scroller::-webkit-scrollbar-thumb {
+  background: rgb(167, 202, 17); ;
+  /* border-radius: 4px; */
+}
+
+.billing-history .Scroller::-webkit-scrollbar-thumb:hover {
+  background: #A7CA11 ;
+}
+
+/* search and select css start  */
+.search-container {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.search-input {
+  padding-left: 10px !important;
+  width: 100% !important;
+}
+
+.search-input::placeholder {
+  color: #666 !important;
+  opacity: 1 !important;
+}
+
+.search-icon {
+  position: absolute !important;
+  left: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-size: 18px !important;
+  color: #888 !important;
+}
+
+.search-wrapper,
+.sort-wrapper {
+  transition: width 0.3s ease-in-out;
+}
+
+/* search and select css end  */
+
+
+
+
+.billing-history .sort-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.billing-history .sort-options select {
+  /* background-color: #33354a; */
+  color: white !important;
+  border: 1px solid #fff;
+  padding: 0.5rem;
+  /* border-radius: 4px; */
+  font-size: 0.9rem;
+}
+.billing-history .form-control{
+  background-color: transparent;
+  border: 0;
+  width: 40%;
+  padding: 0;
+}
+
+.billing-history .search-input {
+  background-color: white !important;
+  color: black !important;
+}
+
+.billing-history select option:checked,
+.billing-history select option:hover {
+  background-color: rgba(151, 63, 159, 1) !important;
+  color: white !important;
+}
+
+.sort-options select {
+  background-image: var(--select-arrow-bg); /* Path to your custom arrow icon */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Position the icon 10px from the right, centered vertically */
+  padding-right: 30px; /* Ensure enough space for the icon to avoid text overlap */
+  -webkit-appearance: none; /* Remove default arrow in WebKit browsers (Chrome, Safari) */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  appearance: none; /* Remove default arrow in all modern browsers */
+  border: 1px solid #fff !important; /* Optional: Add a border for better visibility */
+  padding: 8px 30px 8px 10px; /* Adjust padding for consistent appearance */
+  cursor: pointer; /* Indicate interactivity */
+  /* background-color: #fff;  */
+  background-color: #21182A !important; 
+  color: black;
+
+
+/* Validation/VT1 */
+  font-family: "Poppins";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+/* Optional: Ensure Firefox doesn't show the default arrow */
+@-moz-document url-prefix() {
+  .sort-options select {
+    text-indent: 0.01px; /* Firefox hack to ensure text is visible */
+    text-overflow: ''; /* Firefox hack to ensure text is visible */
+  }
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0.75rem 0; */
+  /* border-bottom: 1px solid #444; */
+  font-size: 16px;
+  font-family: "Poppins";
+  color: #FFF;  
+  font-weight: 400;
+}
+.bill-card{
+  margin-bottom: 20px;
+  padding: 0.75rem 0;
+  
+  border-bottom: 1px solid #444;
+
+}
+.billing-type{
+  color: #AEAEAE !important;
+}
+
+.no-invoices{
+  font-weight: 600 !important;
+  font-style: "SemiBold" !important;
+  font-size: 14px !important;
+  line-height: 24px;
+  letter-spacing: 0.5%;
+  color: #666666 !important;
+}
+
+
+.bill-card:last-child {
+  border-bottom: none;  
+  margin-bottom: 0px;
+}
+.paid-by{
+  text-align: left !important;
+  margin: 4px 0px;
+  padding-bottom: 10px;
+}
+
+.amount {
+  color: #ff2a6d;
+  font-weight: bold;
+}
+
+
+/* Invoice css  */
+/* .invoice-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.modal-content {
+  background: #fff;
+  padding: 0px;
+  width: 33.5rem;
+  color: #000;
+  position: relative;
+  text-align: left;
+  font-family: Arial, sans-serif;
+} */
+
+/* Invoice CSS */
+.invoice-modal {
+  position: fixed; /* Use fixed to cover the entire viewport */
+  top: 2.0rem;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* Enables scrolling if content overflows */
+  /* padding: 2rem;  */
+}
+
+.modal-content {
+  background: #fff;
+  /* padding: 1rem; */
+  width: 33.5rem;
+  color: #000;
+  position: relative;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  max-height: 90vh; /* Prevents modal from exceeding viewport */
+  overflow-y: auto; /* Enables internal scrolling if needed */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.modal-logo {
+  // width: 60px;
+  // height: auto;
+}
+.close-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+}
+.modal-body h2 {
+  /* margin: 0 0 10px;
+  font-size: 20px; */
+
+  color: #000;
+
+  /* Heading/H3 */
+  font-family: "Poppins";
+  font-size: 22px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: 28px; /* 127.273% */
+}
+.modal-body p {
+  margin: 10px 0;
+
+  color: #000;
+
+  /* Body/B2 */
+  font-family: "Poppins";
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 400 ;
+  line-height: 130% ; /* 20.8px */
+  letter-spacing: -0.8px ;
+}
+.modal-body p a {
+  color: #000;
+}
+.modal-body p strong {
+
+  color: #000;
+
+  /* Body/B5 */
+  font-family: "Poppins";
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  }
+.modal-divider {
+  border: 0;
+  border-top: 1px solid #800080;
+  margin: 15px 0;
+}
+.download-pdf-btn {
+  /* background-color: #d81b60; */
+  // background: var(--Gradient-inside, linear-gradient(270deg, #6BFE12 0%, #A7CA11 69.23%));
+  background: linear-gradient(92.43deg, #6BFE12 11%, #A7CA11 113.58%);
+
+
+  
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .download-pdf-btn::before {
+  content: "↓";
+  margin-right: 5px;
+} */
+
+
+/* Shimmer animation for image loading */
+@keyframes shimmer {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+
+// -----------------------
+.email-icon {
+  width: 147px;
+}
+
+/* Title */
+.verify-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Subtext */
+.verify-text {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0;
+}
+
+.verify-email {
+  font-weight: bolder !important;
+  color: white;
+}
+
+/* OTP Input Boxes */
+.otp-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+  width: 372px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Wrapper responsible for gradient border + radius */
+.otp-box-wrapper {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+}
+
+/* Gradient border using pseudo-element */
+.otp-box-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 1.4px; /* border width */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.17) 100%
+  );
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Error state - red border */
+.otp-box-wrapper.otp-error::before {
+  background: red;
+}
+
+/* Actual input inside wrapper */
+.otp-box {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: none; 
+  border-radius: 8px;
+  padding: 0;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+/* Focus state — red border */
+.otp-box:focus {
+  outline: 2px solid white;
+  outline-offset: 0;
+}
+.verify-btn{
+  background: linear-gradient(92.43deg, #6BFE12 11%, #A7CA11 113.58%);
+  backdrop-filter: blur(12px);
+  border: 0px !important;
+  width: 372px;
+  max-width: 100%;
+}
+
+
+
+
+/* Links */
+.resend-link {
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.return-login {
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none; /* <= Fix request #1 */
+}
