@@ -106,6 +106,8 @@ const MovieSlider = ({ focusMode, onFocusChange, sectionName = "DRAMAS", title =
               key={movie._id} 
               className={`movie-slider-item ${focusMode === sectionId && focusedIndex === index ? 'focused' : ''}`}
             >
+
+              {console.log(movie.title)}
               <MovieCard movie={{
                 id: movie._id,
                 title: movie.title,
@@ -114,7 +116,7 @@ const MovieSlider = ({ focusMode, onFocusChange, sectionName = "DRAMAS", title =
                   : `${import.meta.env.VITE_APP_IMAGE_PATH}${movie.imageCoverDesktop}`,
                 episodes: `${movie.episodeCount} Episodes`,
                 year: movie.ageRating || 'G',
-                tags: movie.genreId?.join(' | ') || 'Drama'
+                tags: movie.genreId?.join(' . ') || 'Drama'
               }} />
             </div>
           ))}

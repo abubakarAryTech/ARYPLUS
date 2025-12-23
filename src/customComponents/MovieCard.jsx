@@ -42,11 +42,11 @@ const MovieCard = ({ movie }) => {
             className="card-img" 
           />
         </div>
+        {console.log("Adadada",movie.tags)}
       </div>
-      {/* Movie Info Below Card */}
-      <div className="movie-info" style={{ padding: '8px 0', color: 'white' }}>
-        <h3 className="movie-title" style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 'bold' }}>{movie.title}</h3>
-        <p className="movie-genre" style={{ margin: '0', fontSize: '12px', opacity: '0.8' }}>{movie.tags}</p>
+      <div className="movie-title-container" style={{ padding: '8px 0', marginTop: '8px' }}>
+        <h2 style={{ color: 'white', margin: '0', fontSize: '16px' }}>{movie.title}</h2>
+        
       </div>
     </div>
   );

@@ -202,59 +202,55 @@
 /* ......................................... */
 
 .movie-card-container {
-  width: 180px; /* Default width */
-  height: 260px; /* Default height */
+  width: 100%; 
+  height: 100%;
   position: relative;
-  margin: 10px;
-}
-
-.movie-info {
-  margin-top: 8px;
-  padding: 0 4px;
-}
-
-.movie-info .movie-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: white;
-  margin: 0 0 4px 0;
-  line-height: 1.2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.movie-info .movie-genre {
-  font-size: 12px;
-  color: #ccc;
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column; /* Stack image then title */
+  margin: 0; 
 }
 
 .movie-card {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 35px); /* Leave 35px for the title at the bottom */
   background-color: #1a1a1a;
-  border-radius: 0;
+  border-radius: 4px;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative; /* Change from absolute to relative */
   z-index: 1;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Hover Expansion State */
+/* When the card is expanded (hover/focused), THEN we use absolute 
+   so it can overlap other items without pushing them */
 .movie-card.expanded {
-  width: 280px;
-  height: 380px;
-  top: -60px; /* Expands upward */
-  left: -50px; /* Expands outward */
+  position: absolute; 
+  width: 480px;
+  height: 270px;
+  top: -45px;
+  left: -80px;
   z-index: 50;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+}
+
+.movie-title-container {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  z-index: 2;
+}
+
+.movie-slider-item {
+  flex-shrink: 0;
+  min-width: 330px;
+  /* Ensure overflow is not hidden so expansion and titles are visible */
+  overflow: visible; 
+}
+
+.movie-slider-item .movie-card-container {
+  width: 320px;
+  height: 215px; /* Increased height: 180px image + 35px title */
 }
 
 .image-wrapper {
@@ -372,33 +368,11 @@
   outline-offset: 2px;
 }
 
-/* Movie Slider Styles */
 .movie-slider-list {
   display: flex;
   gap: 8px;
   transition: transform 0.3s ease;
   padding-bottom: 20px;
-}
-
-.movie-slider-item {
-  flex-shrink: 0;
-  min-width: 330px;
-}
-
-.movie-slider-item .movie-card-container {
-  width: 320px;
-  height: 180px;
-}
-
-.movie-slider-item .movie-card {
-  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.movie-slider-item .movie-card.expanded {
-  width: 480px;
-  height: 270px;
-  top: -45px;
-  left: -80px;
 }
 
 /* Small Movie Slider Styles */
