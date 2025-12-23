@@ -4,9 +4,16 @@ import { createKeyHandler } from '../utils/tizenRemote';
 import HomeHeroSlider from '../components/slider/HomeHeroSlider';
 import api from '../services/api';
 import { useAuthStore } from '../stores/useAuthStore';
+import TopTenMoviesToWatch from "../components/sections/TopTenMoviesToWatch";
+import LiveEventSlider from "../components/sections/LiveEventSlider";
+import Top10Picks from '../customComponents/Top10Picks';
+import MovieSlider from '../customComponents/MovieSlider';
+import SmallMovieSlider from '../customComponents/SmallMovieSlider';
+import HeroSlider from '../components/slider/HeroSlider';
 
 const Home = () => {
   const [cardFocus, setCardFocus] = useState(0);
+  const [sectionFocus, setSectionFocus] = useState('hero');
   const { focusMode } = useContext(FocusContext);
   const [sliderData, setSliderData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -15,94 +22,45 @@ const Home = () => {
   const cards = ['Popular Movies', 'Trending Shows', 'Live Channels'];
 
   useEffect(() => {
-    // Hardcoded slider data for testing
-    const hardcodedData = [
-      {
-        imagePath: "slider1.jpg",
-        data: {
-          _id: "1",
-          title: "Sample Movie 1",
-          description: "This is a sample movie description for testing the slider.",
-          seriesType: "singleVideo",
-          releaseDate: "2024-01-01",
-          genreId: [{ title: "Action" }],
-          episodeCount: 1,
-          videoDuration: "02:15:30",
-          logo: null,
-          trailer: null,
-          imageCoverMobile: "mobile1.jpg"
+    const fetchSliderData = async () => {
+      try {
+        const response = await api.get(`/api/v2/homev2/v2/${import.meta.env.VITE_BUILDER_ID}/PK`);
+        const homeData = response.data.home?.homeData;
+        const imageSlider = homeData?.find(item => item.type === 'ImageSlider');
+        if (imageSlider?.data?.slider?.sliderData) {
+          setSliderData(imageSlider.data.slider.sliderData);
         }
-      },
-      {
-        imagePath: "slider2.jpg",
-        data: {
-          _id: "2",
-          title: "Sample Show 2",
-          description: "This is a sample TV show description for testing the slider.",
-          seriesType: "show",
-          releaseDate: "2024-02-01",
-          genreId: [{ title: "Drama" }],
-          episodeCount: 24,
-          videoDuration: "45:00",
-          logo: null,
-          trailer: null,
-          imageCoverMobile: "mobile2.jpg"
-        }
+      } catch (error) {
+        console.error('Failed to fetch slider data:', error);
+      } finally {
+        setIsLoading(false);
       }
-    ];
-    
-    setSliderData(hardcodedData);
-    setIsLoading(false);
+    };
+
+    fetchSliderData();
   }, []);
 
-  useEffect(() => {
-    const handleKeyDown = createKeyHandler({
-      ArrowRight: (e) => {
-        if (focusMode === 'content') {
-          e.preventDefault();
-          setCardFocus(prev => (prev + 1) % cards.length);
-        }
-      },
-      ArrowLeft: (e) => {
-        if (focusMode === 'content') {
-          e.preventDefault();
-          setCardFocus(prev => (prev - 1 + cards.length) % cards.length);
-        }
-      },
-      Enter: (e) => {
-        if (focusMode === 'content') {
-          alert(`Selected: ${cards[cardFocus]}`);
-        }
-      }
-    });
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [cardFocus, cards, focusMode]);
+  const handleFocusChange = (newSection) => {
+    console.log('Home: Focus changing from', sectionFocus, 'to', newSection);
+    setSectionFocus(newSection);
+  };
 
   return (
-    <div className="page-content">
+    <>
+    {/* {!isLoading && <HomeHeroSlider list={sliderData} favorites={[]} user={user} />} */}
+    {/* <LiveEventSlider type="liveevents" title="Live Events" /> */}
+    {/* <TopTenMoviesToWatch /> */}
 
-    {!isLoading && <HomeHeroSlider list={sliderData} favorites={[]} user={user} />}
-
-
-      <h1>Welcome to ARYPLUS TV</h1>
-      <div className="content-grid">
-        <div className="featured-section">
-          <h2>Featured Content</h2>
-          <div className="content-cards">
-            {cards.map((card, index) => (
-              <div 
-                key={index}
-                className={`card ${focusMode === 'content' && index === cardFocus ? 'card-focused' : ''}`}
-              >
-                {card}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    <HeroSlider Slider="Slider" focusMode={sectionFocus} onFocusChange={handleFocusChange} />
+    <Top10Picks focusMode={sectionFocus} onFocusChange={handleFocusChange} />
+    <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="DRAMAS" title="Featured Dramas" sectionId="dramas" />
+    <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="TELEFILMS" title="Telefilms" sectionId="telefilms" />
+    <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="TV SHOWS" title="Tv Shows" sectionId="tvshows" />
+    <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="SPORTS" title="Sports" sectionId="sports" />
+    <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="PODCASTS" title="PODCASTS" sectionId="podcasts" />
+    <SmallMovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="OST" title="OST" sectionId="ost"/>
+    
+    </>
   );
 };
 
