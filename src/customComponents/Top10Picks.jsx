@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createKeyHandler } from '../utils/tizenRemote';
 
-const Top10Picks = ({ focusMode, onFocusChange }) => {
+const Top10Picks = ({ focusMode, onFocusChange, sectionFocus }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [movies, setMovies] = useState([]);
@@ -25,7 +25,7 @@ const Top10Picks = ({ focusMode, onFocusChange }) => {
   }, []);
 
   useEffect(() => {
-    if (focusMode !== 'top10') return;
+    if (sectionFocus !== 'top10') return;
 
     const handleKeyDown = createKeyHandler({
       ArrowRight: (e) => {
@@ -51,10 +51,22 @@ const Top10Picks = ({ focusMode, onFocusChange }) => {
       ArrowUp: (e) => {
         e.preventDefault();
         onFocusChange?.('hero');
+        setTimeout(() => {
+          const heroSection = document.querySelector('.hero-slider');
+          if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       },
       ArrowDown: (e) => {
         e.preventDefault();
         onFocusChange?.('dramas');
+        setTimeout(() => {
+          const nextSection = document.querySelector('.top10-container:nth-of-type(2)');
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       },
       Enter: (e) => {
         e.preventDefault();
@@ -64,7 +76,7 @@ const Top10Picks = ({ focusMode, onFocusChange }) => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [focusMode, focusedIndex, currentIndex, movies, itemsPerView, onFocusChange]);
+  }, [focusMode, focusedIndex, currentIndex, movies, itemsPerView, onFocusChange, sectionFocus]);
 
   const nextSlide = () => {
     if (currentIndex < movies.length - itemsPerView) {
@@ -86,14 +98,17 @@ const Top10Picks = ({ focusMode, onFocusChange }) => {
     <section className="top10-container">
       <h2 className="top10-title">Top 10 Picks</h2>
       <div className="top10-slider">
-        <button className="top10-nav prev" onClick={prevSlide}>‹</button>
-        <div className="top10-list" style={{ transform: `translateX(-${currentIndex * 295}px)` }}>
+        <div className="top10-list" style={{ transform: `translateX(-${currentIndex * 244}px)` }}>
           {movies.map((movie, index) => (
             <div 
               key={movie._id} 
-              className={`top10-item ${focusMode === 'top10' && focusedIndex === index ? 'focused' : ''}`}
+              className={`top10-item ${sectionFocus === 'top10' && focusedIndex === index ? 'focused' : ''}`}
             >
-              <div className="top10-rank">{index + 1}</div>
+              <img 
+                src={`${import.meta.env.VITE_APP_IMAGE_PATH}images/count/aryplus/${index + 1}.png?v=1.0`}
+                alt={`Top ${index + 1}`}
+                className="top10-rank"
+              />
               <div className="top10-poster-wrapper">
                 <img 
                   src={movie.imagePoster.includes("https://") 
@@ -107,7 +122,6 @@ const Top10Picks = ({ focusMode, onFocusChange }) => {
             </div>
           ))}
         </div>
-        <button className="top10-nav next" onClick={nextSlide}>›</button>
       </div>
     </section>
   );

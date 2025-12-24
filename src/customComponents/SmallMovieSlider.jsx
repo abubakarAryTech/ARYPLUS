@@ -55,19 +55,32 @@ const SmallMovieSlider = ({ focusMode, onFocusChange, sectionName = "DRAMAS", ti
       },
       ArrowUp: (e) => {
         e.preventDefault();
-        const sections = ['popular', 'top10', 'dramas', 'telefilms', 'tvshows', 'sports', 'podcasts', 'ost'];
+        const sections = ['hero', 'top10', 'dramas', 'telefilms', 'tvshows', 'sports', 'podcasts', 'ost'];
         const currentIndex = sections.indexOf(sectionId);
         if (currentIndex > 0) {
-          onFocusChange?.(sections[currentIndex - 1]);
+          const prevSection = sections[currentIndex - 1];
+          onFocusChange?.(prevSection);
+          setTimeout(() => {
+            const sectionSelectors = {
+              'hero': '.hero-slider',
+              'top10': '.top10-container:first-of-type',
+              'dramas': '.top10-container:nth-of-type(2)',
+              'telefilms': '.top10-container:nth-of-type(3)',
+              'tvshows': '.top10-container:nth-of-type(4)',
+              'sports': '.top10-container:nth-of-type(5)',
+              'podcasts': '.top10-container:nth-of-type(6)',
+              'ost': '.top10-container:nth-of-type(7)'
+            };
+            const targetSection = document.querySelector(sectionSelectors[prevSection]);
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
         }
       },
       ArrowDown: (e) => {
         e.preventDefault();
-        const sections = ['popular', 'top10', 'dramas', 'telefilms', 'tvshows', 'sports', 'podcasts', 'ost'];
-        const currentIndex = sections.indexOf(sectionId);
-        if (currentIndex < sections.length - 1) {
-          onFocusChange?.(sections[currentIndex + 1]);
-        }
+        // OST is the last section, so no down navigation
       },
       Enter: (e) => {
         e.preventDefault();

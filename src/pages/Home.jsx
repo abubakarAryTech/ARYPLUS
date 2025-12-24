@@ -14,7 +14,7 @@ import HeroSlider from '../components/slider/HeroSlider';
 const Home = () => {
   const [cardFocus, setCardFocus] = useState(0);
   const [sectionFocus, setSectionFocus] = useState('hero');
-  const { focusMode } = useContext(FocusContext);
+  const { focusMode, setFocusMode } = useContext(FocusContext);
   const [sliderData, setSliderData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const user = useAuthStore(state => state.user);
@@ -43,7 +43,15 @@ const Home = () => {
   const handleFocusChange = (newSection) => {
     console.log('Home: Focus changing from', sectionFocus, 'to', newSection);
     setSectionFocus(newSection);
+    setFocusMode('content'); // Ensure we're in content mode
   };
+
+  // Handle initial focus when coming from sidebar
+  useEffect(() => {
+    if (focusMode === 'content' && sectionFocus !== 'hero') {
+      setSectionFocus('hero');
+    }
+  }, [focusMode]);
 
   return (
     <>
@@ -51,8 +59,8 @@ const Home = () => {
     {/* <LiveEventSlider type="liveevents" title="Live Events" /> */}
     {/* <TopTenMoviesToWatch /> */}
 
-    <HeroSlider Slider="Slider" focusMode={sectionFocus} onFocusChange={handleFocusChange} />
-    <Top10Picks focusMode={sectionFocus} onFocusChange={handleFocusChange} />
+    <HeroSlider Slider="Slider" focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionFocus={sectionFocus} />
+    <Top10Picks focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionFocus={sectionFocus} />
     <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="DRAMAS" title="Featured Dramas" sectionId="dramas" />
     <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="TELEFILMS" title="Telefilms" sectionId="telefilms" />
     <MovieSlider focusMode={sectionFocus} onFocusChange={handleFocusChange} sectionName="TV SHOWS" title="Tv Shows" sectionId="tvshows" />

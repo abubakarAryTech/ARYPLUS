@@ -55,18 +55,52 @@ const MovieSlider = ({ focusMode, onFocusChange, sectionName = "DRAMAS", title =
       },
       ArrowUp: (e) => {
         e.preventDefault();
-        const sections = ['popular', 'top10', 'dramas', 'telefilms', 'tvshows', 'sports', 'podcasts', 'ost'];
+        const sections = ['hero', 'top10', 'dramas', 'telefilms', 'tvshows', 'sports', 'podcasts', 'ost'];
         const currentIndex = sections.indexOf(sectionId);
         if (currentIndex > 0) {
-          onFocusChange?.(sections[currentIndex - 1]);
+          const prevSection = sections[currentIndex - 1];
+          onFocusChange?.(prevSection);
+          setTimeout(() => {
+            const sectionSelectors = {
+              'hero': '.hero-slider',
+              'top10': '.top10-container:first-of-type',
+              'dramas': '.top10-container:nth-of-type(2)',
+              'telefilms': '.top10-container:nth-of-type(3)',
+              'tvshows': '.top10-container:nth-of-type(4)',
+              'sports': '.top10-container:nth-of-type(5)',
+              'podcasts': '.top10-container:nth-of-type(6)',
+              'ost': '.top10-container:nth-of-type(7)'
+            };
+            const targetSection = document.querySelector(sectionSelectors[prevSection]);
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
         }
       },
       ArrowDown: (e) => {
         e.preventDefault();
-        const sections = ['popular', 'top10', 'dramas', 'telefilms', 'tvshows', 'sports', 'podcasts', 'ost'];
+        const sections = ['hero', 'top10', 'dramas', 'telefilms', 'tvshows', 'sports', 'podcasts', 'ost'];
         const currentIndex = sections.indexOf(sectionId);
         if (currentIndex < sections.length - 1) {
-          onFocusChange?.(sections[currentIndex + 1]);
+          const nextSection = sections[currentIndex + 1];
+          onFocusChange?.(nextSection);
+          setTimeout(() => {
+            const sectionSelectors = {
+              'hero': '.hero-slider',
+              'top10': '.top10-container:first-of-type',
+              'dramas': '.top10-container:nth-of-type(2)',
+              'telefilms': '.top10-container:nth-of-type(3)',
+              'tvshows': '.top10-container:nth-of-type(4)',
+              'sports': '.top10-container:nth-of-type(5)',
+              'podcasts': '.top10-container:nth-of-type(6)',
+              'ost': '.top10-container:nth-of-type(7)'
+            };
+            const targetSection = document.querySelector(sectionSelectors[nextSection]);
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
         }
       },
       Enter: (e) => {
@@ -111,9 +145,9 @@ const MovieSlider = ({ focusMode, onFocusChange, sectionName = "DRAMAS", title =
               <MovieCard movie={{
                 id: movie._id,
                 title: movie.title,
-                img: movie.imageCoverDesktop?.includes("https://") 
-                  ? movie.imageCoverDesktop 
-                  : `${import.meta.env.VITE_APP_IMAGE_PATH}${movie.imageCoverDesktop}`,
+                img: movie.imagePoster?.includes("https://") 
+                  ? movie.imagePoster 
+                  : `${import.meta.env.VITE_APP_IMAGE_PATH}${movie.imagePoster}`,
                 episodes: `${movie.episodeCount} Episodes`,
                 year: movie.ageRating || 'G',
                 tags: movie.genreId?.join(' . ') || 'Drama'

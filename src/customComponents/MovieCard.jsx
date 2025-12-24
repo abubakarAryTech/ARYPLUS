@@ -41,13 +41,22 @@ const MovieCard = ({ movie }) => {
             alt={movie.title} 
             className="card-img" 
           />
+          {movie.logo && (
+            <img 
+              src={movie.logo.includes("https://") 
+                ? movie.logo 
+                : `${import.meta.env.VITE_APP_IMAGE_PATH}${movie.logo}`}
+              alt={`${movie.title} Logo`}
+              className="card-logo"
+            />
+          )}
         </div>
         {console.log("Adadada",movie.tags)}
       </div>
-      <div className="movie-title-container" style={{ padding: '8px 0', marginTop: '8px' }}>
+      {/* <div className="movie-title-container" style={{ padding: '8px 0', marginTop: '8px' }}>
         <h2 style={{ color: 'white', margin: '0', fontSize: '16px' }}>{movie.title}</h2>
         
-      </div>
+      </div> */}
     </div>
   );
 };

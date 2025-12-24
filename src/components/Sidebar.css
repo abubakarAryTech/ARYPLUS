@@ -2,7 +2,7 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background: black;
+  background: #303030;
   color: white;
   position: fixed;
   left: 0;
@@ -47,15 +47,42 @@
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   border: 1px solid transparent; 
-  border-radius: 8px; /* Rounded pill look */
+  border-radius: 18px; /* Rounded pill look */
 }
 
 /* Hover & Focus state (Matches your image) */
 .menu-item:hover, 
-.menu-item.focused {
-  
-  border: 1px solid #ffffff; 
-  color: #ffffff;
+.menu-item.focused,
+.menu-item.active {
+  background: linear-gradient(92.43deg, #A7CA11 11%, #6BFE12 113.58%);
+  color: #000000;
+}
+
+.menu-item:hover .menu-icon,
+.menu-item.focused .menu-icon,
+.menu-item.active .menu-icon {
+  color: #000000 !important;
+}
+
+.menu-item:hover .menu-icon svg,
+.menu-item.focused .menu-icon svg,
+.menu-item.active .menu-icon svg {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
+.menu-item:hover .menu-icon *,
+.menu-item.focused .menu-icon *,
+.menu-item.active .menu-icon * {
+  color: #000000 !important;
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.menu-item:hover .menu-label,
+.menu-item.focused .menu-label,
+.menu-item.active .menu-label {
+  color: #000000;
 }
 
 
@@ -87,6 +114,20 @@
   padding: 12px 0;
   justify-content: center;
   margin: 8px 5px;
+}
+
+.sidebar.collapsed .menu-item:hover,
+.sidebar.collapsed .menu-item.focused,
+.sidebar.collapsed .menu-item.active {
+  background: linear-gradient(92.43deg, #A7CA11 11%, #6BFE12 113.58%);
+}
+
+.sidebar.collapsed .menu-item:hover .menu-icon *,
+.sidebar.collapsed .menu-item.focused .menu-icon *,
+.sidebar.collapsed .menu-item.active .menu-icon * {
+  color: #000000 !important;
+  fill: #000000 !important;
+  stroke: #000000 !important;
 }
 
 .sidebar.collapsed .menu-icon {
